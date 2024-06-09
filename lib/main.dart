@@ -1,19 +1,23 @@
+// main.dart
 import 'package:flutter/material.dart';
-import 'package:grocery_app/screens/splash_screen.dart';
+import 'package:provider/provider.dart';
+import 'package:shoopink/providers/cart_provider.dart';
+import 'package:shoopink/screens/splash_screen.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => CartProvider(),
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Grocery App',
-      theme: ThemeData(
-        primarySwatch: Colors.green,
-      ),
-      home: SplashScreen(), // Atur SplashScreen sebagai home
+      home: SplashScreen(),
     );
   }
 }

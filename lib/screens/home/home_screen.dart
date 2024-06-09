@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:grocery_app/models/grocery_item.dart';
-import 'package:grocery_app/screens/product_details/product_details_screen.dart';
-import 'package:grocery_app/styles/colors.dart';
-import 'package:grocery_app/widgets/grocery_item_card_widget.dart';
-import 'package:grocery_app/widgets/search_bar_widget.dart'
+import 'package:shoopink/models/grocery_item.dart';
+import 'package:shoopink/screens/product_details/product_details_screen.dart';
+import 'package:shoopink/styles/colors.dart';
+import 'package:shoopink/widgets/grocery_item_card_widget.dart';
+import 'package:shoopink/widgets/search_bar_widget.dart'
     as search_bar_widget;
 import 'grocery_featured_Item_widget.dart';
 import 'home_banner_widget.dart';

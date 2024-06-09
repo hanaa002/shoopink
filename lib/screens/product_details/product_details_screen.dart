@@ -1,10 +1,14 @@
+// product_details_screen.dart
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart'; // Import package intl untuk formatter mata uang
-import 'package:grocery_app/common_widgets/app_button.dart';
-import 'package:grocery_app/common_widgets/app_text.dart';
-import 'package:grocery_app/models/grocery_item.dart';
-import 'package:grocery_app/widgets/item_counter_widget.dart';
+import 'package:provider/provider.dart';
+import 'package:shoopink/providers/cart_provider.dart';
+import 'package:shoopink/models/grocery_item.dart';
+import 'package:shoopink/screens/cart/cart_screen.dart';
+import 'package:shoopink/widgets/item_counter_widget.dart';
+import 'package:shoopink/common_widgets/app_button.dart';
+import 'package:shoopink/common_widgets/app_text.dart';
 import 'favourite_toggle_icon_widget.dart';
+import 'package:intl/intl.dart';
 
 class ProductDetailsScreen extends StatefulWidget {
   final GroceryItem groceryItem;
@@ -50,10 +54,12 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                     Spacer(),
                     Row(
                       children: [
-                        ItemCounterWidget(
-                          onAmountChanged: (newAmount) {
+                          ItemCounterWidget(
+                          item: widget.groceryItem,
+                          onAmountChanged: (item, quantity) {
+                            final cartProvider = Provider.of<CartProvider>(context, listen: false);
                             setState(() {
-                              amount = newAmount;
+                              cartProvider.updateItemQuantity(item, quantity); // Update the quantity of the item in the cart
                             });
                           },
                         ),
@@ -81,6 +87,32 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                     Spacer(),
                     AppButton(
                       label: "Add To Basket",
+                      onPressed: () {
+                        final cartProvider = Provider.of<CartProvider>(context, listen: false);
+                        for (int i = 0; i < amount; i++) {
+                          cartProvider.addItem(widget.groceryItem);
+                        }
+                        showDialog(
+                          context: context,
+                          builder: (context) => AlertDialog(
+                            title: Text('Success'),
+                            content: Text('Item added to the cart.'),
+                            actions: [
+                              TextButton(
+                                onPressed: () {
+                                  Navigator.of(context).pop(); // Close the dialog
+                                  Navigator.of(context).push(
+                                    MaterialPageRoute(
+                                      builder: (context) => CartScreen(),
+                                    ),
+                                  ); // Navigate to cart screen
+                                },
+                                child: Text('Go to Cart'),
+                              ),
+                            ],
+                          ),
+                        );
+                      },
                     ),
                     Spacer(),
                   ],

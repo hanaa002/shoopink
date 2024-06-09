@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:grocery_app/common_widgets/app_button.dart';
-import 'package:grocery_app/common_widgets/app_text.dart';
-import 'package:grocery_app/screens/login_screen.dart'; // Ubah ke login_screen.dart
-import 'package:grocery_app/styles/colors.dart';
+import 'package:shoopink/common_widgets/app_button.dart';
+import 'package:shoopink/common_widgets/app_text.dart';
+import 'package:shoopink/screens/login_screen.dart'; // Ubah ke login_screen.dart
+import 'package:shoopink/styles/colors.dart';
 
 class WelcomeScreen extends StatelessWidget {
   final String imagePath = "assets/images/welcomesplashscreen.png";

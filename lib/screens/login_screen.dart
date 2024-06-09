@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:grocery_app/screens/dashboard/dashboard_screen.dart';
+import 'package:shoopink/screens/dashboard/dashboard_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   @override

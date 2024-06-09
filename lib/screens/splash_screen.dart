@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:grocery_app/screens/welcome_screen.dart';
+import 'package:shoopink/screens/welcome_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   @override

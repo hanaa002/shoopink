@@ -7,6 +7,7 @@ class GroceryItem {
   final String description;
   final double price;
   final String imagePath;
+  int amount; // Add amount field here
 
   GroceryItem({
     this.id,
@@ -14,8 +15,10 @@ class GroceryItem {
     required this.description,
     required this.price,
     required this.imagePath,
+    this.amount = 1, // Initialize amount with default value
   });
 }
+
 
 String formatPrice(double price) {
   final formatter = NumberFormat.simpleCurrency(

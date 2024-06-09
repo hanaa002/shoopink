@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:grocery_app/common_widgets/app_button.dart';
-import 'package:grocery_app/common_widgets/app_text.dart';
+import 'package:intl/intl.dart';
+import 'package:shoopink/common_widgets/app_button.dart';
+import 'package:shoopink/common_widgets/app_text.dart';
 
 import '../order_accepted_screen.dart';
 
 class CheckoutBottomSheet extends StatefulWidget {
+   final double totalPrice; // Add totalPrice variable
+
+  CheckoutBottomSheet({required this.totalPrice}); // Update constructor
+
   @override
   _CheckoutBottomSheetState createState() => _CheckoutBottomSheetState();
 }
@@ -55,7 +60,7 @@ class _CheckoutBottomSheetState extends State<CheckoutBottomSheet> {
           getDivider(),
           checkoutRow("Promo Code", trailingText: "Pick Discount"),
           getDivider(),
-          checkoutRow("Total Cost", trailingText: "\52.000"),
+          checkoutRow("Total Cost", trailingText: "Rp${NumberFormat("#,##0", "id_ID").format(widget.totalPrice)}",),
           getDivider(),
           SizedBox(
             height: 30,

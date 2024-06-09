@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:grocery_app/styles/colors.dart';
+import 'package:shoopink/styles/colors.dart';
 import 'navigator_item.dart';
 
 class DashboardScreen extends StatefulWidget {

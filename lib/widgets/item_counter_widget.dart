@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:grocery_app/styles/colors.dart';
+import 'package:shoopink/models/grocery_item.dart';
+import 'package:shoopink/styles/colors.dart';
 
 class ItemCounterWidget extends StatefulWidget {
-  final Function? onAmountChanged;
+  final GroceryItem item;
+  final Function(GroceryItem item, int newAmount)? onAmountChanged;
 
-  const ItemCounterWidget({Key? key, this.onAmountChanged}) : super(key: key);
+  const ItemCounterWidget({
+    Key? key,
+    required this.item,
+    this.onAmountChanged,
+  }) : super(key: key);
 
   @override
   _ItemCounterWidgetState createState() => _ItemCounterWidgetState();
@@ -17,17 +23,13 @@ class _ItemCounterWidgetState extends State<ItemCounterWidget> {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        iconWidget(Icons.remove,
-            iconColor: AppColors.darkGrey, onPressed: decrementAmount),
+        iconWidget(Icons.remove, iconColor: AppColors.darkGrey, onPressed: decrementAmount),
         SizedBox(width: 18),
         Container(
             width: 30,
-            child: Center(
-                child: getText(
-                    text: amount.toString(), fontSize: 18, isBold: true))),
+            child: Center(child: getText(text: amount.toString(), fontSize: 18, isBold: true))),
         SizedBox(width: 18),
-        iconWidget(Icons.add,
-            iconColor: AppColors.primaryColor, onPressed: incrementAmount)
+        iconWidget(Icons.add, iconColor: AppColors.primaryColor, onPressed: incrementAmount)
       ],
     );
   }
@@ -40,7 +42,7 @@ class _ItemCounterWidgetState extends State<ItemCounterWidget> {
   }
 
   void decrementAmount() {
-    if (amount <= 0) return;
+    if (amount <= 1) return; // Updated condition to prevent negative amount
     setState(() {
       amount = amount - 1;
       updateParent();
@@ -49,7 +51,7 @@ class _ItemCounterWidgetState extends State<ItemCounterWidget> {
 
   void updateParent() {
     if (widget.onAmountChanged != null) {
-      widget.onAmountChanged!(amount);
+      widget.onAmountChanged!(widget.item, amount); // Pass the item and the new amount
     }
   }
 

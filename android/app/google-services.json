@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "63028058946",
+    "project_id": "shoopink-c9cb0",
+    "storage_bucket": "shoopink-c9cb0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:63028058946:android:c311dd8aa2004f2d8b86db",
+        "android_client_info": {
+          "package_name": "com.example.grocery_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyADRATS9ZLAq-EZN-cJIopexQmrPiFBrc4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

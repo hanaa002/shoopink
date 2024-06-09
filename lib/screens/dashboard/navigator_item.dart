@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:grocery_app/screens/account/account_screen.dart';
-import 'package:grocery_app/screens/cart/cart_screen.dart';
-import 'package:grocery_app/screens/explore_screen.dart';
-import 'package:grocery_app/screens/home/home_screen.dart';
+import 'package:shoopink/screens/account/account_screen.dart';
+import 'package:shoopink/screens/cart/cart_screen.dart';
+import 'package:shoopink/screens/explore_screen.dart';
+import 'package:shoopink/screens/home/home_screen.dart';
 
 class NavigatorItem {
   final String label;
