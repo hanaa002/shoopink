@@ -1,45 +1,43 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:shoopink/common_widgets/app_text.dart';
-import 'package:shoopink/models/grocery_item.dart';
-import 'package:shoopink/screens/product_details/product_details_screen.dart';
-import 'package:shoopink/widgets/grocery_item_card_widget.dart';
+import 'package:flutter/material.dart'; // Mengimpor package flutter/material.dart untuk menggunakan Flutter UI framework.
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart'; // Mengimpor package flutter_staggered_grid_view.dart untuk menggunakan StaggeredGridView.
+import 'package:shoopink/common_widgets/app_text.dart'; // Mengimpor widget AppText dari direktori common_widgets/app_text.dart.
+import 'package:shoopink/models/grocery_item.dart'; // Mengimpor model GroceryItem dari direktori models/grocery_item.dart.
+import 'package:shoopink/screens/product_details/product_details_screen.dart'; // Mengimpor screen ProductDetailsScreen dari direktori screens/product_details/product_details_screen.dart.
+import 'package:shoopink/widgets/grocery_item_card_widget.dart'; // Mengimpor widget GroceryItemCardWidget dari direktori widgets/grocery_item_card_widget.dart.
 
-import 'filter_screen.dart';
-
-class CategoryItemsScreen extends StatefulWidget {
+class CategoryItemsScreen extends StatefulWidget { // Deklarasi class CategoryItemsScreen sebagai StatefulWidget.
   @override
-  _CategoryItemsScreenState createState() => _CategoryItemsScreenState();
+  _CategoryItemsScreenState createState() => _CategoryItemsScreenState(); // Membuat state untuk CategoryItemsScreen.
 }
 
-class _CategoryItemsScreenState extends State<CategoryItemsScreen> {
-  List<GroceryItem> _filteredItems = beverages;
+class _CategoryItemsScreenState extends State<CategoryItemsScreen> { // Deklarasi class _CategoryItemsScreenState sebagai state untuk CategoryItemsScreen.
+  List<GroceryItem> _filteredItems = beverages; // Inisialisasi _filteredItems dengan daftar beverages.
 
-  void _searchItems(String query) {
-    final filteredItems = beverages.where((item) {
-      final itemNameLower = item.name.toLowerCase();
-      final searchLower = query.toLowerCase();
+  void _searchItems(String query) { // Method untuk melakukan pencarian item berdasarkan query.
+    final filteredItems = beverages.where((item) { // Filtering item dari daftar beverages.
+      final itemNameLower = item.name.toLowerCase(); // Mendapatkan nama item dalam huruf kecil.
+      final searchLower = query.toLowerCase(); // Mengubah query menjadi huruf kecil.
 
-      return itemNameLower.contains(searchLower);
+      return itemNameLower.contains(searchLower); // Mengembalikan true jika nama item mengandung query.
     }).toList();
 
-    setState(() {
+    setState(() { // Memperbarui state _filteredItems dengan hasil pencarian.
       _filteredItems = filteredItems;
     });
   }
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white, // Ensure the Scaffold background is white
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        centerTitle: true,
-        automaticallyImplyLeading: false,
-        leading: GestureDetector(
+  Widget build(BuildContext context) { // Method untuk membangun tampilan CategoryItemsScreen.
+    return Scaffold( // Menggunakan Scaffold sebagai layout utama.
+      backgroundColor: Colors.white, // Mengatur warna latar belakang Scaffold menjadi putih.
+      appBar: AppBar( // Membangun AppBar.
+        backgroundColor: Colors.transparent, // Mengatur latar belakang AppBar menjadi transparan.
+        elevation: 0, // Menghilangkan bayangan di AppBar.
+        centerTitle: true, // Memposisikan judul AppBar di tengah.
+        automaticallyImplyLeading: false, // Menghilangkan tombol back di AppBar.
+        leading: GestureDetector( // Menambahkan GestureDetector untuk handling ketika tombol back diklik.
           onTap: () {
-            Navigator.pop(context);
+            Navigator.pop(context); // Kembali ke halaman sebelumnya.
           },
           child: Container(
             padding: EdgeInsets.only(left: 25),
@@ -50,73 +48,62 @@ class _CategoryItemsScreenState extends State<CategoryItemsScreen> {
           ),
         ),
         actions: [
-          GestureDetector(
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => FilterScreen()),
-              );
-            },
-            child: Container(
-              padding: EdgeInsets.only(right: 25),
-              child: Icon(
-                Icons.sort,
-                color: Colors.black,
-              ),
-            ),
-          ),
+          // Menambahkan actions di AppBar (jika ada).
         ],
         title: Container(
           padding: EdgeInsets.symmetric(
             horizontal: 25,
           ),
           child: AppText(
-            text: "Beverages",
-            fontWeight: FontWeight.bold,
-            fontSize: 20,
+            text: "Minuman", // Menampilkan teks "Minuman" sebagai judul AppBar.
+            fontWeight: FontWeight.bold, // Mengatur ketebalan teks judul AppBar.
+            fontSize: 20, // Mengatur ukuran teks judul AppBar.
+            fontFamily: 'Gilroy',
           ),
         ),
       ),
-      body: Column(
+      body: Column( // Membangun body dengan menggunakan Column sebagai parent widget.
         children: [
           Padding(
             padding: const EdgeInsets.all(16.0),
-            child: TextField(
-              onChanged: _searchItems,
-              decoration: InputDecoration(
-                prefixIcon: Icon(Icons.search),
-                hintText: "Search",
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
-                  borderSide: BorderSide.none,
+            child: TextField( // Menambahkan TextField untuk pencarian.
+              onChanged: _searchItems, // Menghubungkan method _searchItems dengan onChanged TextField.
+              decoration: InputDecoration( // Mengatur dekorasi TextField.
+                prefixIcon: Icon(Icons.search), // Menambahkan ikon search di sebelah kiri TextField.
+                hintText: "Cari", // Memberikan hint text pada TextField.
+                hintStyle: TextStyle(fontFamily: 'Gilroy'),
+                border: OutlineInputBorder( // Mengatur border untuk TextField.
+                  borderRadius: BorderRadius.circular(10), // Mengatur borderRadius border.
+                  borderSide: BorderSide.none, // Menghilangkan borderSide untuk border.
                 ),
-                filled: true,
-                fillColor: Colors.grey[200],
-                contentPadding: EdgeInsets.zero,
+                filled: true, // Mengatur TextField menjadi terisi dengan warna latar belakang.
+                fillColor: Colors.grey[200], // Memberikan warna latar belakang TextField.
+                contentPadding: EdgeInsets.zero, // Mengatur padding content TextField.
               ),
+              style: TextStyle(fontFamily: 'Gilroy'),
             ),
           ),
-          Expanded(
-            child: SingleChildScrollView(
-              child: StaggeredGrid.count(
-                crossAxisCount: 2,
-                children: _filteredItems.asMap().entries.map<Widget>((e) {
-                  GroceryItem groceryItem = e.value;
-                  return GestureDetector(
+          Expanded( // Menggunakan Expanded untuk mengisi ruang kosong yang tersedia.
+            child: SingleChildScrollView( // Menggunakan SingleChildScrollView untuk mengatasi overflow.
+              child: StaggeredGrid.count( // Menggunakan StaggeredGrid untuk menampilkan item dalam grid yang bersusun.
+                crossAxisCount: 2, // Menentukan jumlah item per baris.
+                children: _filteredItems.asMap().entries.map<Widget>((e) { // Mapping _filteredItems menjadi widget-widget.
+                  GroceryItem groceryItem = e.value; // Mengambil GroceryItem dari _filteredItems.
+                  return GestureDetector( // Menambahkan GestureDetector untuk menangani ketika item di-klik.
                     onTap: () {
-                      onItemClicked(context, groceryItem);
+                      onItemClicked(context, groceryItem); // Memanggil method onItemClicked ketika item di-klik.
                     },
                     child: Container(
                       padding: EdgeInsets.all(10),
-                      child: GroceryItemCardWidget(
-                        item: groceryItem,
-                        heroSuffix: "explore_screen",
+                      child: GroceryItemCardWidget( // Menampilkan widget GroceryItemCardWidget untuk setiap item.
+                        item: groceryItem, // Mengirimkan data GroceryItem ke GroceryItemCardWidget.
+                        heroSuffix: "explore_screen", // Menentukan heroSuffix untuk animasi hero.
                       ),
                     ),
                   );
                 }).toList(),
-                mainAxisSpacing: 3.0,
-                crossAxisSpacing: 0.0, // add some space
+                mainAxisSpacing: 3.0, // Memberikan spasi antar item secara vertikal.
+                crossAxisSpacing: 0.0, // Memberikan sedikit spasi antar item secara horizontal.
               ),
             ),
           ),
@@ -125,13 +112,13 @@ class _CategoryItemsScreenState extends State<CategoryItemsScreen> {
     );
   }
 
-  void onItemClicked(BuildContext context, GroceryItem groceryItem) {
-    Navigator.push(
+  void onItemClicked(BuildContext context, GroceryItem groceryItem) { // Method untuk menangani ketika item di-klik.
+    Navigator.push( // Navigasi ke halaman ProductDetailsScreen ketika item di-klik.
       context,
       MaterialPageRoute(
         builder: (context) => ProductDetailsScreen(
-          groceryItem,
-          heroSuffix: "explore_screen",
+          groceryItem, // Mengirim data GroceryItem ke ProductDetailsScreen.
+          heroSuffix: "explore_screen", // Menentukan heroSuffix untuk animasi hero.
         ),
       ),
     );

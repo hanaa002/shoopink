@@ -25,24 +25,10 @@ class ExploreScreen extends StatefulWidget {
 class _ExploreScreenState extends State<ExploreScreen> {
   List<CategoryItem> _filteredCategoryItems = categoryItemsDemo;
 
-  void _searchCategoryItems(String query) {
-    final filteredItems = categoryItemsDemo.where((item) {
-      final itemNameLower = item.name.toLowerCase();
-      final searchLower = query.toLowerCase();
-
-      return itemNameLower.contains(searchLower);
-    }).toList();
-
-    setState(() {
-      _filteredCategoryItems = filteredItems;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor:
-          Colors.white, // Pastikan background Scaffold adalah putih
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: Column(
           children: [
@@ -67,6 +53,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
             text: "Cari Produk",
             fontSize: 20,
             fontWeight: FontWeight.bold,
+            fontFamily: 'Gilroy', // Mengatur font family ke Gilroy
           ),
         ),
         SizedBox(
@@ -100,7 +87,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
           );
         }).toList(),
         mainAxisSpacing: 3.0,
-        crossAxisSpacing: 4.0, // tambahkan sedikit ruang
+        crossAxisSpacing: 4.0,
       ),
     );
   }
