@@ -26,8 +26,9 @@ class _ItemCounterWidgetState extends State<ItemCounterWidget> {
         iconWidget(Icons.remove, iconColor: AppColors.darkGrey, onPressed: decrementAmount),
         SizedBox(width: 18),
         Container(
-            width: 30,
-            child: Center(child: getText(text: amount.toString(), fontSize: 18, isBold: true))),
+          width: 30,
+          child: Center(child: getText(text: amount.toString(), fontSize: 18, isBold: true, fontFamily: 'Gilroy')),
+        ),
         SizedBox(width: 18),
         iconWidget(Icons.add, iconColor: AppColors.primaryColor, onPressed: incrementAmount)
       ],
@@ -86,7 +87,8 @@ class _ItemCounterWidgetState extends State<ItemCounterWidget> {
     required String text,
     required double fontSize,
     bool isBold = false,
-    color = Colors.black,
+    Color color = Colors.black,
+    String fontFamily = 'Gilroy',
   }) {
     return Text(
       text,
@@ -94,6 +96,7 @@ class _ItemCounterWidgetState extends State<ItemCounterWidget> {
         fontSize: fontSize,
         fontWeight: isBold ? FontWeight.bold : FontWeight.normal,
         color: color,
+        fontFamily: fontFamily,
       ),
     );
   }

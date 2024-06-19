@@ -51,12 +51,14 @@ class GroceryItemCardWidget extends StatelessWidget { // Widget untuk menampilka
               text: item.name, // Menggunakan nama produk dari GroceryItem.
               fontSize: 16, // Ukuran font 16.
               fontWeight: FontWeight.bold, // Ketebalan font bold.
+              fontFamily: 'Gilroy', // Font family Gilroy.
             ),
             AppText( // Widget kustom AppText untuk menampilkan deskripsi produk.
               text: item.description, // Menggunakan deskripsi produk dari GroceryItem.
               fontSize: 14, // Ukuran font 14.
               fontWeight: FontWeight.w600, // Ketebalan font semi-bold.
               color: Color(0xFF7C7C7C), // Warna teks abu-abu.
+              fontFamily: 'Gilroy', // Font family Gilroy.
             ),
             SizedBox( // SizedBox untuk memberikan jarak antara elemen.
               height: 20, // Tinggi SizedBox 20.
@@ -67,6 +69,7 @@ class GroceryItemCardWidget extends StatelessWidget { // Widget untuk menampilka
                   text: "Rp. ${item.price.toStringAsFixed(0)}", // Mengubah harga menjadi format rupiah.
                   fontSize: 18, // Ukuran font 18.
                   fontWeight: FontWeight.bold, // Ketebalan font bold.
+                  fontFamily: 'Gilroy', // Font family Gilroy.
                 ),
                 Spacer(), // Spacer untuk memberikan ruang antara elemen.
                 addWidget() // Menampilkan widget tombol tambah menggunakan method addWidget().

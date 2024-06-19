@@ -44,7 +44,6 @@ class _CheckoutBottomSheetState extends State<CheckoutBottomSheet> {
     fetchCitiesStore().then((_) { // Setelah mengambil daftar kota toko, set alamat toko default dan panggil fetchShippingOptions
       setState(() {
         selectedStoreAddress = "Jl. Medokan Asri Barat (Surabaya)";
-        fontFamily: 'Gilroy';
         selectedStoreAddressId = surabayaCityId!;
       });
       fetchShippingOptions(); // Memuat opsi pengiriman setelah memilih alamat toko
@@ -371,6 +370,7 @@ class _CheckoutBottomSheetState extends State<CheckoutBottomSheet> {
               style: TextStyle(
                 fontSize: 18,
                 color: Color(0xFF7C7C7C),
+                fontFamily: 'Gilroy',
                 fontWeight: FontWeight.w600,
               ),
             ),
@@ -381,6 +381,7 @@ class _CheckoutBottomSheetState extends State<CheckoutBottomSheet> {
                     trailingText,
                     style: TextStyle(
                       fontSize: 16,
+                      fontFamily: 'Gilroy',
                       color: Colors.black,
                       fontWeight: FontWeight.w600,
                     ),
@@ -411,8 +412,8 @@ class _CheckoutBottomSheetState extends State<CheckoutBottomSheet> {
               style: TextStyle(
                 fontSize: 18,
                 color: Color(0xFF7C7C7C),
-                fontWeight: FontWeight.w600,
                 fontFamily: 'Gilroy',
+                fontWeight: FontWeight.w600,
               ),
             ),
             Spacer(),
@@ -423,6 +424,7 @@ class _CheckoutBottomSheetState extends State<CheckoutBottomSheet> {
                     style: TextStyle(
                       fontSize: 16,
                       color: Colors.black,
+                      fontFamily: 'Gilroy',
                       fontWeight: FontWeight.w600,
                     ),
                   ),

@@ -34,7 +34,7 @@ class _CartScreenState extends State<CartScreen> { // Mendefinisikan state untuk
         ),
         title: Text(
           "Keranjang", // Judul AppBar.
-          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold), // Mengatur gaya teks judul.
+          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontFamily: 'Gilroy',), // Mengatur gaya teks judul.
         ),
         centerTitle: true, // Menengahkan judul.
       ),

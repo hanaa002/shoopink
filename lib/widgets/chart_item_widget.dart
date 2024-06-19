@@ -47,6 +47,7 @@ class _ChartItemWidgetState extends State<ChartItemWidget> { // State class untu
                   text: widget.item.name, // Menggunakan nama produk dari GroceryItem.
                   fontSize: 16, // Ukuran font 16.
                   fontWeight: FontWeight.bold, // Ketebalan font bold.
+                  fontFamily: 'Gilroy', // Font family Gilroy.
                 ),
                 SizedBox(height: 5), // SizedBox untuk memberikan jarak 5 pixel.
                 AppText( // Widget kustom AppText untuk menampilkan deskripsi produk.
@@ -54,6 +55,7 @@ class _ChartItemWidgetState extends State<ChartItemWidget> { // State class untu
                   fontSize: 14, // Ukuran font 14.
                   fontWeight: FontWeight.bold, // Ketebalan font semi-bold.
                   color: AppColors.darkGrey, // Warna teks abu-abu gelap dari AppColors.
+                  fontFamily: 'Gilroy', // Font family Gilroy.
                 ),
                 SizedBox(height: 12), // SizedBox untuk memberikan jarak 12 pixel.
                 Spacer(), // Spacer untuk memberikan ruang.
@@ -76,6 +78,7 @@ class _ChartItemWidgetState extends State<ChartItemWidget> { // State class untu
                     fontSize: 18, // Ukuran font 18.
                     fontWeight: FontWeight.bold, // Ketebalan font bold.
                     textAlign: TextAlign.right, // Teks rata kanan.
+                    fontFamily: 'Gilroy', // Font family Gilroy.
                   ),
                 ),
                 Spacer(), // Spacer untuk memberikan ruang.

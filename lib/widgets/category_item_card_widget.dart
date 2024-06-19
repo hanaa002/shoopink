@@ -10,8 +10,8 @@ class CategoryItemCardWidget extends StatelessWidget { // Deklarasi class Catego
   }) : super(key: key);
 
   final CategoryItem item; // Deklarasi variabel item bertipe CategoryItem sebagai data untuk widget ini.
-  final height = 200.0; // Tinggi widget ini.
-  final width = 175.0; // Lebar widget ini.
+  final double height = 200.0; // Tinggi widget ini.
+  final double width = 175.0; // Lebar widget ini.
   final Color borderColor = Color(0xffE2E2E2); // Warna border.
   final double borderRadius = 18; // BorderRadius untuk border.
   final Color color; // Warna latar belakang widget ini.
@@ -44,6 +44,7 @@ class CategoryItemCardWidget extends StatelessWidget { // Deklarasi class Catego
                 textAlign: TextAlign.center, // Posisi teks menjadi tengah.
                 fontSize: 16, // Ukuran teks.
                 fontWeight: FontWeight.bold, // Ketebalan teks.
+                fontFamily: 'Gilroy', // Menggunakan font family Gilroy.
               ),
             ),
           ),

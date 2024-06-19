@@ -68,6 +68,7 @@ class AppButton extends StatelessWidget {
                   fontSize: 18, // Ukuran font
                   fontWeight: fontWeight, // Ketebalan font
                   color: textColor, // Menggunakan warna teks dari parameter
+                  fontFamily: 'Gilroy',
                 ),
               ),
             ),

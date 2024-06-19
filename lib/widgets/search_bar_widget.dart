@@ -1,31 +1,32 @@
-import 'package:flutter/material.dart'; // Mengimpor package flutter/material.dart untuk menggunakan Flutter UI framework.
+import 'package:flutter/material.dart';
 
-class SearchBarWidget extends StatelessWidget { // Deklarasi class SearchBarWidget sebagai StatelessWidget.
+class SearchBarWidget extends StatelessWidget {
   @override
-  Widget build(BuildContext context) { // Method build untuk membangun tampilan widget.
-    return Container( // Menggunakan Container sebagai parent widget.
-      padding: EdgeInsets.all(16), // Padding untuk semua sisi Container.
-      width: double.maxFinite, // Lebar Container mengikuti lebar maksimum yang tersedia.
-      decoration: BoxDecoration( // Mendefinisikan dekorasi Container.
-        color: Color(0xFFF2F3F2), // Warna latar belakang Container.
-        borderRadius: BorderRadius.circular(20), // BorderRadius untuk sudut Container.
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(16),
+      width: double.maxFinite,
+      decoration: BoxDecoration(
+        color: Color(0xFFF2F3F2),
+        borderRadius: BorderRadius.circular(20),
       ),
-      child: Row( // Menggunakan Row untuk menyusun widget secara horizontal.
-        mainAxisAlignment: MainAxisAlignment.start, // Menyusun widget mulai dari kiri.
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Icon( // Widget Icon untuk menampilkan ikon search.
-            Icons.search, // Menggunakan ikon search.
-            color: Color(0xFF7C7C7C), // Warna ikon.
+          Icon(
+            Icons.search,
+            color: Color(0xFF7C7C7C),
           ),
-          SizedBox( // SizedBox untuk memberikan jarak horizontal.
-            width: 8, // Lebar SizedBox.
+          SizedBox(
+            width: 8,
           ),
-          Text( // Widget Text untuk menampilkan teks "Cari Produk".
-            "Cari Produk", // Teks yang ditampilkan.
-            style: TextStyle( // Style untuk teks.
-              fontSize: 18, // Ukuran teks.
-              fontWeight: FontWeight.bold, // Ketebalan teks.
-              color: Color(0xFF7C7C7C), // Warna teks.
+          Text(
+            "Cari Produk",
+            style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+              color: Color(0xFF7C7C7C),
+              fontFamily: 'Gilroy',
             ),
           )
         ],

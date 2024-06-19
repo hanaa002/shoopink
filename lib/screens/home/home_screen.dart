@@ -88,7 +88,7 @@ class HomeScreen extends StatelessWidget {
                       Spacer(), // Spacer lagi untuk ruang kosong
                       // Tombol keranjang belanja (belum diimplementasikan)
                       IconButton(
-                        icon: Icon(Icons.shopping_cart),
+                        icon: Icon(Icons.notifications),
                         onPressed: () {
                           // Tambahkan aksi ketika ikon keranjang belanja ditekan
                         },
@@ -165,7 +165,7 @@ class HomeScreen extends StatelessWidget {
                 leading: CircleAvatar(
                   backgroundImage: AssetImage('assets/images/profilpengembang1.jpg'),
                 ),
-                title: Text('Fidyah Salsabila', style: TextStyle(fontFamily: 'Gilroy')), // Ensuring the font is Gilroy
+                title: Text('Fidyah Salsabila', style: TextStyle(fontFamily: 'Gilroy', fontWeight: FontWeight.bold,)), // Ensuring the font is Gilroy
                 onTap: () {
                   // Navigasi ke halaman detail profil pengembang pertama
                   Navigator.push(
@@ -179,7 +179,7 @@ class HomeScreen extends StatelessWidget {
                 leading: CircleAvatar(
                   backgroundImage: AssetImage('assets/images/profilpengembang2.jpg'),
                 ),
-                title: Text('Raihana Sakhi', style: TextStyle(fontFamily: 'Gilroy')), // Ensuring the font is Gilroy
+                title: Text('Raihana Sakhi', style: TextStyle(fontFamily: 'Gilroy', fontWeight: FontWeight.bold,)), // Ensuring the font is Gilroy
                 onTap: () {
                   // Navigasi ke halaman detail profil pengembang kedua
                   Navigator.push(

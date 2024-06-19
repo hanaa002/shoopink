@@ -53,8 +53,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
             },
             type: BottomNavigationBarType.fixed, // Tipe navigation bar
             selectedItemColor: Colors.green, // Warna item terpilih
-            selectedLabelStyle: TextStyle(fontWeight: FontWeight.w600), // Gaya label item terpilih
-            unselectedLabelStyle: TextStyle(fontWeight: FontWeight.w600), // Gaya label item tidak terpilih
+            selectedLabelStyle: TextStyle(fontWeight: FontWeight.w600, fontFamily: 'Gilroy'), // Gaya label item terpilih dengan font Gilroy
+            unselectedLabelStyle: TextStyle(fontWeight: FontWeight.w600, fontFamily: 'Gilroy'), // Gaya label item tidak terpilih dengan font Gilroy
             unselectedItemColor: Colors.black, // Warna item tidak terpilih
             items: navigatorItems.map((e) {
               // Iterasi melalui setiap item navigasi
